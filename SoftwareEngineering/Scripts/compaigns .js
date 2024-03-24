@@ -1,3 +1,29 @@
+// İlerleme miktarını değiştirmek için:
+function setProgress(progressElementId,progressPercentage) {
+    var progressElement = document.getElementById(progressElementId +'-progress');
+    var dashOffset = 100 - progressPercentage;
+    progressElement.style.strokeDashoffset = dashOffset;
+   
+}
+//veri çekme işlemi bu noktada gerşekleşecek
+//targetDonation=100;
+//currentDonation=80;
+function updateProgress(targetDonation ,currentDonation,progressElementId){
+    
+    var percentage=(currentDonation/targetDonation)*100;
+
+    if (percentage < 0) {
+        percentage = 0;
+    } else if (percentage > 100) {
+        percentage = 100;
+    }
+
+    setProgress(progressElementId,percentage);
+
+    document.getElementById(progressElementId+'-progress-text').textContent = percentage.toFixed(2) + '%';
+    document.getElementById(progressElementId+'-goalAndRaised').textContent=currentDonation+' raised of '+targetDonation+' goal';
+}
+//updateProgress(targetDonation,currentDonation,progressElementId); example of usage
 
 
 function redirectToComp1() {
