@@ -1,46 +1,10 @@
-// İlerleme miktarını değiştirmek için:
-function setProgress(progressElementId,progressPercentage) {
-    var progressElement = document.getElementById(progressElementId +'-progress');
-    var dashOffset = 100 - progressPercentage;
-    progressElement.style.strokeDashoffset = dashOffset;
-   /* document.getElementById('progress-text').textContent=progressPercentage+'%';
-    document.getElementsByClassName('text-light').textContent=currentDonation+'raised of'+targetDonation+'goal';*/
-}
-//veri çekme işlemi bu noktada gerşekleşecek
+
 targetDonation=200;
 currentDonation=60;
-function updateProgress(targetDonation ,currentDonation,progressElementId){
-    
-    var percentage=(currentDonation/targetDonation)*100;
 
-    if (percentage < 0) {
-        percentage = 0;
-    } else if (percentage > 100) {
-        percentage = 100;
-    }
-
-    setProgress(progressElementId,percentage);
-
-    document.getElementById(progressElementId+'-progress-text').textContent = percentage.toFixed(2) + '%';
-    document.getElementById(progressElementId+'-goalAndRaised').textContent=currentDonation+' raised of '+targetDonation+' goal';
-}
 //updateProgress(targetDonation,currentDonation,progressElementId); example of usage
 
 updateProgress(targetDonation, currentDonation, 'c3'); // c3 için
 
 
-function redirectToComp1() {
-    window.location.href = "comp1.html"; // comp1.html sayfasına yönlendir
-}
 
-function redirectToComp2() {
-    window.location.href = "comp2.html"; // comp2.html sayfasına yönlendir
-}
-
-function redirectToComp3() {
-    window.location.href = "comp3.html"; // comp3.html sayfasına yönlendir
-}
-
-function redirectToComp4() {
-    window.location.href = "comp4.html"; // comp4.html sayfasına yönlendir
-}
